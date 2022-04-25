@@ -1,5 +1,3 @@
-# Using Stacks to Arrange Views
+# Swift Practice
 
-## Completed Project
-
-Explore the completed project for [Using Stacks to Arrange Views](https://developer.apple.com/tutorials/app-dev-training/using-stacks-to-arrange-views).
+Apple developer [Scrumdinger application](https://developer.apple.com/tutorials/app-dev-training) for learning.
