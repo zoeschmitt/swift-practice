@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScrumsView: View {
-    let scrums: [DailyScrum]
+    @Binding var scrums: [DailyScrum]
 
     var body: some View {
         List {
@@ -22,8 +22,8 @@ struct ScrumsView: View {
 
             /// Which is why you need to define an Id UUID in DailyScrum model.
 
-            ForEach(scrums) { scrum in
-                NavigationLink(destination: DetailView(scrum: scrum)) {
+            ForEach($scrums) { $scrum in
+                NavigationLink(destination: DetailView(scrum: $scrum)) {
                     CardView(scrum: scrum)
                         .listRowBackground(scrum.theme.mainColor)
                 }
@@ -44,7 +44,7 @@ struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
         // Adding the NavigationView displays navigation elements, like title and bar buttons, on the canvas. For now, the preview displays padding for a navigation title.
         NavigationView {
-            ScrumsView(scrums: DailyScrum.sampleData)
+            ScrumsView(scrums: .constant(DailyScrum.sampleData))
         }
     }
 }
