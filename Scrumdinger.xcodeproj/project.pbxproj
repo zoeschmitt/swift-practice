@@ -27,6 +27,7 @@
 		DD6581792817805000AAE685 /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6581782817805000AAE685 /* AVPlayer+Ding.swift */; };
 		DD65817C281780B900AAE685 /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = DD65817B281780B900AAE685 /* ding.wav */; };
 		DD65817E28178DC300AAE685 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65817D28178DC300AAE685 /* History.swift */; };
+		DD6581802817906D00AAE685 /* ScrumStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65817F2817906D00AAE685 /* ScrumStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		DD6581782817805000AAE685 /* AVPlayer+Ding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ding.swift"; sourceTree = "<group>"; };
 		DD65817B281780B900AAE685 /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		DD65817D28178DC300AAE685 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		DD65817F2817906D00AAE685 /* ScrumStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				DD65816D281706D300AAE685 /* ThemePicker.swift */,
 				DD65817328176C9C00AAE685 /* ScrumTimer.swift */,
 				DD65817D28178DC300AAE685 /* History.swift */,
+				DD65817F2817906D00AAE685 /* ScrumStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				DD65816E281706D300AAE685 /* ThemePicker.swift in Sources */,
 				DD65817228176BFD00AAE685 /* ScrumProgressViewStyle.swift in Sources */,
 				DD65817628177E0700AAE685 /* MeetingFooterView.swift in Sources */,
+				DD6581802817906D00AAE685 /* ScrumStore.swift in Sources */,
 				DD65817428176C9C00AAE685 /* ScrumTimer.swift in Sources */,
 				DD65815E281621C400AAE685 /* DailyScrum.swift in Sources */,
 				DD65816828162D5300AAE685 /* DetailView.swift in Sources */,
@@ -405,7 +409,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -435,7 +439,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

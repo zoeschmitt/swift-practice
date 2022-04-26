@@ -11,6 +11,9 @@ struct ScrumsView: View {
     @Binding var scrums: [DailyScrum]
     @State private var isPresentingNewScrumView = false
     @State private var newScrumData = DailyScrum.Data()
+    // SwiftUI indicates the current operational state of your app’s Scene instances with a scenePhase Environment value.
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: ()->Void
 
     var body: some View {
         List {
@@ -62,6 +65,10 @@ struct ScrumsView: View {
                     }
             }
         }
+        .onChange(of: scenePhase) { phase in
+            // A scene in the inactive phase no longer receives events and may be unavailable to the user.
+            if phase == .inactive { saveAction() }
+        }
     }
 }
 
@@ -69,7 +76,7 @@ struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
         // Adding the NavigationView displays navigation elements, like title and bar buttons, on the canvas. For now, the preview displays padding for a navigation title.
         NavigationView {
-            ScrumsView(scrums: .constant(DailyScrum.sampleData))
+            ScrumsView(scrums: .constant(DailyScrum.sampleData), saveAction: {})
         }
     }
 }

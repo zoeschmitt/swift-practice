@@ -8,7 +8,7 @@
 import SwiftUI
 
 // CaseIterable so that you can easily access all the enumeration’s cases.
-enum Theme: String, CaseIterable, Identifiable {
+enum Theme: String, CaseIterable, Identifiable, Codable {
     case bubblegum
     case buttercup
     case indigo
