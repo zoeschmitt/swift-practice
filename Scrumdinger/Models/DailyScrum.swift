@@ -13,6 +13,7 @@ struct DailyScrum: Identifiable {
     var attendees: [Attendee]
     var lengthInMinutes: Int
     var theme: Theme
+    var history: [History] = []
 
     // When you define a default value for a parameter, you can omit that parameter when you call an initializer or function.
     init(id: UUID = UUID(), title: String, attendees: [String], lengthInMinutes: Int, theme: Theme) {
@@ -49,6 +50,14 @@ extension DailyScrum {
     }
 
     mutating func update(from data: Data) {
+        title = data.title
+        attendees = data.attendees
+        lengthInMinutes = Int(data.lengthInMinutes)
+        theme = data.theme
+    }
+
+    init(data: Data) {
+        id = UUID()
         title = data.title
         attendees = data.attendees
         lengthInMinutes = Int(data.lengthInMinutes)
