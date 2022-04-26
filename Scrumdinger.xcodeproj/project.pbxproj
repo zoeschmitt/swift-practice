@@ -20,6 +20,10 @@
 		DD65816A281655A100AAE685 /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD658169281655A100AAE685 /* DetailEditView.swift */; };
 		DD65816C2816FE9600AAE685 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65816B2816FE9600AAE685 /* ThemeView.swift */; };
 		DD65816E281706D300AAE685 /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65816D281706D300AAE685 /* ThemePicker.swift */; };
+		DD6581702817698400AAE685 /* MeetingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65816F2817698400AAE685 /* MeetingHeaderView.swift */; };
+		DD65817228176BFD00AAE685 /* ScrumProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65817128176BFD00AAE685 /* ScrumProgressViewStyle.swift */; };
+		DD65817428176C9C00AAE685 /* ScrumTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65817328176C9C00AAE685 /* ScrumTimer.swift */; };
+		DD65817628177E0700AAE685 /* MeetingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65817528177E0700AAE685 /* MeetingFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		DD658169281655A100AAE685 /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 		DD65816B2816FE9600AAE685 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		DD65816D281706D300AAE685 /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
+		DD65816F2817698400AAE685 /* MeetingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingHeaderView.swift; sourceTree = "<group>"; };
+		DD65817128176BFD00AAE685 /* ScrumProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumProgressViewStyle.swift; sourceTree = "<group>"; };
+		DD65817328176C9C00AAE685 /* ScrumTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumTimer.swift; sourceTree = "<group>"; };
+		DD65817528177E0700AAE685 /* MeetingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +87,6 @@
 				DD65815F2816220600AAE685 /* Views */,
 				DD65815A2816211300AAE685 /* Models */,
 				7CB413DE26EA824100544BA7 /* ScrumdingerApp.swift */,
-				7CB413E026EA824100544BA7 /* MeetingView.swift */,
 				7CB413E226EA824300544BA7 /* Assets.xcassets */,
 				7CB413E426EA824300544BA7 /* Preview Content */,
 			);
@@ -116,6 +123,7 @@
 				DD65815B2816211E00AAE685 /* Theme.swift */,
 				DD65815D281621C400AAE685 /* DailyScrum.swift */,
 				DD65816D281706D300AAE685 /* ThemePicker.swift */,
+				DD65817328176C9C00AAE685 /* ScrumTimer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,6 +131,7 @@
 		DD65815F2816220600AAE685 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7CB413E026EA824100544BA7 /* MeetingView.swift */,
 				DD6581602816221000AAE685 /* CardView.swift */,
 				DD6581652816266400AAE685 /* ScrumsView.swift */,
 				DD65816728162D5300AAE685 /* DetailView.swift */,
@@ -136,6 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				DD6581632816233000AAE685 /* TrailingIconLabelStyle.swift */,
+				DD65816F2817698400AAE685 /* MeetingHeaderView.swift */,
+				DD65817128176BFD00AAE685 /* ScrumProgressViewStyle.swift */,
+				DD65817528177E0700AAE685 /* MeetingFooterView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -211,8 +223,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD65816E281706D300AAE685 /* ThemePicker.swift in Sources */,
+				DD65817228176BFD00AAE685 /* ScrumProgressViewStyle.swift in Sources */,
+				DD65817628177E0700AAE685 /* MeetingFooterView.swift in Sources */,
+				DD65817428176C9C00AAE685 /* ScrumTimer.swift in Sources */,
 				DD65815E281621C400AAE685 /* DailyScrum.swift in Sources */,
 				DD65816828162D5300AAE685 /* DetailView.swift in Sources */,
+				DD6581702817698400AAE685 /* MeetingHeaderView.swift in Sources */,
 				DD65816A281655A100AAE685 /* DetailEditView.swift in Sources */,
 				DD6581642816233000AAE685 /* TrailingIconLabelStyle.swift in Sources */,
 				DD65815C2816211E00AAE685 /* Theme.swift in Sources */,
