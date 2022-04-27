@@ -4,11 +4,24 @@ See LICENSE folder for this sample’s licensing information.
 
 import Foundation
 
-struct Reminder {
+struct Reminder: Identifiable {
+    var id: String = UUID().uuidString
     var title: String
     var dueDate: Date
     var notes: String? = nil
     var isComplete: Bool = false
+}
+
+// You can use the generic where clause to conditionally extend a generic type.
+extension Array where Element == Reminder {
+    // Using this method instead of directly accessing reminders reduces potential errors and makes maintaining your code simpler.
+    // Array.Index is a type alias for Int.
+    func indexOfReminder(with id: Reminder.ID) -> Self.Index {
+        guard let index = firstIndex(where: { $0.id == id }) else {
+            fatalError()
+        }
+        return index
+    }
 }
 
 #if DEBUG

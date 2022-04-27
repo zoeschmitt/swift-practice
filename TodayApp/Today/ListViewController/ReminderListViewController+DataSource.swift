@@ -13,12 +13,12 @@ import UIKit
 // Lists can display cells for more than one type of data.
 
 extension ReminderListViewController {
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
+    typealias DataSource = UICollectionViewDiffableDataSource<Int, Reminder.ID>
     // Diffable data sources manage the state of your data with snapshots. A snapshot represents the state of your data at a specific point in time. To display data using a snapshot, you’ll create the snapshot, populate the snapshot with the state of data that you want to display, and then apply the snapshot in the user interface.
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Reminder.ID>
 
-    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, id: String) {
-        let reminder = Reminder.sampleData[indexPath.item]
+    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, id: Reminder.ID) {
+        let reminder = reminder(for: id)
         // defaultContentConfiguration() creates a content configuration with the predefined system style.
         var contentConfiguration = cell.defaultContentConfiguration()
         // The list displays the configuration text as the primary text of a cell.
@@ -44,5 +44,15 @@ extension ReminderListViewController {
         let button = UIButton()
         button.setImage(image, for: .normal)
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
+    }
+
+    func reminder(for id: Reminder.ID) -> Reminder {
+        let index = reminders.indexOfReminder(with: id)
+        return reminders[index]
+    }
+
+    func update(_ reminder: Reminder, with id: Reminder.ID) {
+        let index = reminders.indexOfReminder(with: id)
+        reminders[index] = reminder
     }
 }
