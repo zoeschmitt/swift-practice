@@ -17,6 +17,23 @@ extension ReminderListViewController {
     // Diffable data sources manage the state of your data with snapshots. A snapshot represents the state of your data at a specific point in time. To display data using a snapshot, you’ll create the snapshot, populate the snapshot with the state of data that you want to display, and then apply the snapshot in the user interface.
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Reminder.ID>
 
+    // Specifying an empty array as the default value for the parameter lets you call the method from viewDidLoad() without providing identifiers.
+    func updateSnapshot(reloading ids: [Reminder.ID] = []) {
+        // You create a new snapshot when your collection view initially loads and whenever your app’s data changes.
+        var snapshot = Snapshot()
+        snapshot.appendSections([0])
+        snapshot.appendItems(reminders.map { $0.id })
+
+        if !ids.isEmpty {
+            // reload the reminders for the identifiers.
+            snapshot.reloadItems(ids)
+        }
+
+        // Applying the snapshot reflects the changes in the user interface.
+        // When you apply an updated snapshot, the system calculates the differences between the two snapshots and animates the changes to the corresponding cells. (*DIFFABLE* data source)
+        dataSource.apply(snapshot)
+    }
+
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, id: Reminder.ID) {
         let reminder = reminder(for: id)
         // defaultContentConfiguration() creates a content configuration with the predefined system style.
@@ -37,11 +54,20 @@ extension ReminderListViewController {
         cell.backgroundConfiguration = backgroundConfiguration
     }
 
+    func completeReminder(with id: Reminder.ID) {
+        var reminder = reminder(for: id)
+        reminder.isComplete.toggle()
+        update(reminder, with: id)
+        updateSnapshot(reloading: [id])
+    }
+
     private func doneButtonConfiguration(for reminder: Reminder) -> UICellAccessory.CustomViewConfiguration {
         let symbolName = reminder.isComplete ? "circle.fill" : "circle"
         let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
         let image = UIImage(systemName: symbolName, withConfiguration: symbolConfiguration)
-        let button = UIButton()
+        let button = ReminderDoneButton()
+        button.id = reminder.id
+        button.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
         button.setImage(image, for: .normal)
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
     }

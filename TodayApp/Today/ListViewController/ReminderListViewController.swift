@@ -30,13 +30,7 @@ class ReminderListViewController: UICollectionViewController {
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
 
-        // You create a new snapshot when your collection view initially loads and whenever your app’s data changes.
-        var snapshot = Snapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(reminders.map { $0.id })
-        // Applying the snapshot reflects the changes in the user interface.
-        // When you apply an updated snapshot, the system calculates the differences between the two snapshots and animates the changes to the corresponding cells. (*DIFFABLE* data source)
-        dataSource.apply(snapshot)
+        updateSnapshot()
         
         collectionView.dataSource = dataSource
     }
