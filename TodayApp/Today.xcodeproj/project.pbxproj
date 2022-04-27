@@ -17,6 +17,7 @@
 		7CB07726270FAA1F0042FB15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB07725270FAA1F0042FB15 /* Assets.xcassets */; };
 		7CB07729270FAA1F0042FB15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB07727270FAA1F0042FB15 /* LaunchScreen.storyboard */; };
 		7CB07732270FAF0E0042FB15 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB07731270FAF0E0042FB15 /* Reminder.swift */; };
+		DDA228942819D38F000B0278 /* Date+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA228932819D38F000B0278 /* Date+Today.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7CB07728270FAA1F0042FB15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB0772A270FAA1F0042FB15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CB07731270FAF0E0042FB15 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		DDA228932819D38F000B0278 /* Date+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Today.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB07731270FAF0E0042FB15 /* Reminder.swift */,
+				DDA228932819D38F000B0278 /* Date+Today.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB07721270FAA1C0042FB15 /* ReminderListViewController.swift in Sources */,
+				DDA228942819D38F000B0278 /* Date+Today.swift in Sources */,
 				7CB0771D270FAA1C0042FB15 /* AppDelegate.swift in Sources */,
 				7CB0771F270FAA1C0042FB15 /* SceneDelegate.swift in Sources */,
 				7CB07732270FAF0E0042FB15 /* Reminder.swift in Sources */,
