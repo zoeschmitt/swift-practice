@@ -33,6 +33,7 @@
 		DDA2288C2818C0AD000B0278 /* MeetingTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2288B2818C0AD000B0278 /* MeetingTimerView.swift */; };
 		DDA2288E2818C5CC000B0278 /* SpeakerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2288D2818C5CC000B0278 /* SpeakerArc.swift */; };
 		DDA228902818DA16000B0278 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2288F2818DA16000B0278 /* SpeechRecognizer.swift */; };
+		DDA228922818E0EA000B0278 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA228912818E0EA000B0278 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		DDA2288B2818C0AD000B0278 /* MeetingTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTimerView.swift; sourceTree = "<group>"; };
 		DDA2288D2818C5CC000B0278 /* SpeakerArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerArc.swift; sourceTree = "<group>"; };
 		DDA2288F2818DA16000B0278 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		DDA228912818E0EA000B0278 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				DD658169281655A100AAE685 /* DetailEditView.swift */,
 				DD65816B2816FE9600AAE685 /* ThemeView.swift */,
 				DDA228892818B66D000B0278 /* ErrorView.swift */,
+				DDA228912818E0EA000B0278 /* HistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD65817E28178DC300AAE685 /* History.swift in Sources */,
+				DDA228922818E0EA000B0278 /* HistoryView.swift in Sources */,
 				DD65816E281706D300AAE685 /* ThemePicker.swift in Sources */,
 				DD65817228176BFD00AAE685 /* ScrumProgressViewStyle.swift in Sources */,
 				DD65817628177E0700AAE685 /* MeetingFooterView.swift in Sources */,
