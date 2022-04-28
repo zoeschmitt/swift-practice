@@ -17,6 +17,13 @@ extension ReminderListViewController {
     // Diffable data sources manage the state of your data with snapshots. A snapshot represents the state of your data at a specific point in time. To display data using a snapshot, you’ll create the snapshot, populate the snapshot with the state of data that you want to display, and then apply the snapshot in the user interface.
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Reminder.ID>
 
+    var reminderCompletedValue: String {
+        NSLocalizedString("Completed", comment: "Reminder completed value")
+    }
+    var reminderNotCompletedValue: String {
+        NSLocalizedString("Not completed", comment: "Reminder not completed value")
+    }
+
     // Specifying an empty array as the default value for the parameter lets you call the method from viewDidLoad() without providing identifiers.
     func updateSnapshot(reloading ids: [Reminder.ID] = []) {
         // You create a new snapshot when your collection view initially loads and whenever your app’s data changes.
@@ -47,6 +54,8 @@ extension ReminderListViewController {
         var doneButtonConfiguration = doneButtonConfiguration(for: reminder)
         doneButtonConfiguration.tintColor = .todayListCellDoneButtonTint
 
+        cell.accessibilityCustomActions = [ doneButtonAccessibilityAction(for: reminder) ]
+        cell.accessibilityValue = reminder.isComplete ? reminderCompletedValue : reminderNotCompletedValue
         cell.accessories = [ .customView(configuration: doneButtonConfiguration), .disclosureIndicator(displayed: .always) ]
 
         var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
@@ -70,6 +79,17 @@ extension ReminderListViewController {
         button.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
         button.setImage(image, for: .normal)
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
+    }
+
+    private func doneButtonAccessibilityAction(for reminder: Reminder) -> UIAccessibilityCustomAction {
+        // VoiceOver alerts users when actions are available for an object. If a user decides to hear the options, VoiceOver reads the name of each action.
+        let name = NSLocalizedString("Toggle completion", comment: "Reminder done button accessibility label")
+        // By default, closures create a strong reference to external values that you use inside them. Specifying a weak reference to the view controller prevents a retain cycle.
+        let action = UIAccessibilityCustomAction(name: name) { [weak self] action in
+            self?.completeReminder(with: reminder.id)
+            return true
+        }
+        return action
     }
 
     func reminder(for id: Reminder.ID) -> Reminder {
