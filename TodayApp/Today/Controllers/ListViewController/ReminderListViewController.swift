@@ -34,6 +34,19 @@ class ReminderListViewController: UICollectionViewController {
         
         collectionView.dataSource = dataSource
     }
+
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let id = reminders[indexPath.item].id
+        // This method adds a detail view controller to the navigation stack, causing a detail view to push onto the screen. The detail view displays the reminder details for the provided identifier. And a Back button appears automatically as the leading item in the navigation bar.
+        showDetail(for: id)
+        return false
+    }
+
+    func showDetail(for id: Reminder.ID) {
+        let reminder = reminder(for: id)
+        let viewController = ReminderViewController(reminder: reminder)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     
     private func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
