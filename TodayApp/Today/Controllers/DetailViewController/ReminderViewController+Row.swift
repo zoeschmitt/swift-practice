@@ -10,6 +10,7 @@ import UIKit
 extension ReminderViewController {
     // Diffable data sources that supply UIKit lists with data and styling require that items conform to Hashable. The diffable data source uses the hash values to determine what changed between two snapshots of the data.
     enum Row: Hashable {
+        case header(String)
         case viewDate
         case viewNotes
         case viewTime
@@ -39,12 +40,31 @@ extension ReminderViewController {
     }
 
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
-        var contentConfiguration = cell.defaultContentConfiguration()
-        contentConfiguration.text = text(for: row)
-        contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
-        contentConfiguration.image = row.image
-        cell.contentConfiguration = contentConfiguration
+        let section = section(for: indexPath)
+        switch (section, row) {
+        case (_, .header(let title)):
+            var contentConfiguration = cell.defaultContentConfiguration()
+            contentConfiguration.text = title
+            cell.contentConfiguration = contentConfiguration
+        case (.view, _):
+            var contentConfiguration = cell.defaultContentConfiguration()
+            contentConfiguration.text = text(for: row)
+            contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
+            contentConfiguration.image = row.image
+            cell.contentConfiguration = contentConfiguration
+        default:
+            fatalError("Unexpected combination of section and row.")
+        }
+
         cell.tintColor = .todayPrimaryTint
+    }
+
+    private func section(for indexPath: IndexPath) -> Section {
+        let sectionNumber = isEditing ? indexPath.section + 1 : indexPath.section
+        guard let section = Section(rawValue: sectionNumber) else {
+            fatalError("Unable to find matching section")
+        }
+        return section
     }
 
     // You could use if statements to distinguish between details for applying relevant styling. However, by describing each row as a discrete case in an enumeration, you’ve made it easier to modify each row and potentially add more reminder details in the future.
@@ -54,6 +74,7 @@ extension ReminderViewController {
         case .viewNotes: return reminder.notes
         case .viewTime: return reminder.dueDate.formatted(date: .omitted, time: .shortened)
         case .viewTitle: return reminder.title
+        default: return nil
         }
     }
 }
